@@ -41,4 +41,9 @@ public class OwnerServiceImpl implements OwnerService{
         ownerRepository.save(owner);
         return new OwnerResponse(owner);
     }
+
+    @Override
+    public OwnerResponse update(OwnerUpdateRequest ownerUpdateRequest) {
+        return null;
+    }
 }
