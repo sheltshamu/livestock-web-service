@@ -34,28 +34,16 @@ public class CowServiceImpl implements CowService {
         if (!owner.isPresent()){
             throw new OwnerNotFound(cowRequest.getOwnerId());
         }
-        Optional<Cow> father = cowRepository.findByTagNumber(cowRequest.getTagNumber());
-        if (!father.isPresent()){
-            throw new CowNotFound(cowRequest.getTagNumber());
-        }
-        Optional<Cow> mother = cowRepository.findByTagNumber(cowRequest.getTagNumber());
-        if (!father.isPresent()){
-            throw new CowNotFound(cowRequest.getTagNumber());
-        }
-        Optional<MedicationRecord> medicationRecord = medicationRecordRepository.findById(cowRequest.getMedicationRecordId());
-        if (!medicationRecord.isPresent()){
-            throw new RecordNotFoundException(cowRequest.getMedicationRecordId());
-        }
         Cow cow = Cow.builder()
                 .owner(owner.get())
                 .category(cowRequest.getCategory())
                 .dateOfBirth(cowRequest.getDateOfBirth())
                 .description(cowRequest.getDescription())
-                .father(father.get())
-                .mother(mother.get())
+               // .father(father.get())
+               // .mother(mother.get())
                 .gender(cowRequest.getGender())
                 .healthStatus(cowRequest.getHealthStatus())
-                .medicationRecord(medicationRecord.get())
+               // .medicationRecord(medicationRecord.get())
                 .status(cowRequest.getStatus())
                 .tagNumber(cowRequest.getTagNumber())
                 .type(cowRequest.getType())

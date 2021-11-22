@@ -5,8 +5,10 @@ import zw.co.lws.livestockwebservice.domain.Address;
 import zw.co.lws.livestockwebservice.domain.ContactDetails;
 import zw.co.lws.livestockwebservice.domain.Owner;
 import zw.co.lws.livestockwebservice.persistence.OwnerRepository;
+import zw.co.lws.livestockwebservice.service.exceptions.OwnerNotFound;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class OwnerServiceImpl implements OwnerService{
@@ -32,9 +34,9 @@ public class OwnerServiceImpl implements OwnerService{
 
         Owner owner =new Owner();
         owner.setAddress(address);
-        owner.setFirstname(owner.getFirstname());
+        owner.setIdentificationNumber(ownerRequest.getIdentificationNumber());
+        owner.setFirstname(ownerRequest.getFirstname());
         owner.setLastname(ownerRequest.getLastname());
-        owner.setFullName(ownerRequest.getFirstname() + " " +ownerRequest.getLastname());
         owner.setContactDetails(contactDetails);
         owner.setCreatedDate(currentDateTime);
         owner.setModifiedDate(currentDateTime);
@@ -44,6 +46,17 @@ public class OwnerServiceImpl implements OwnerService{
 
     @Override
     public OwnerResponse update(OwnerUpdateRequest ownerUpdateRequest) {
-        return null;
+        Optional<Owner> existingOwner = ownerRepository.findById(ownerUpdateRequest.getId());
+        if (!existingOwner.isPresent()){
+            throw new OwnerNotFound(ownerUpdateRequest.getId());
+        }
+        Owner owner = existingOwner.get();
+        owner.setIdentificationNumber(ownerUpdateRequest.getIdentificationNumber());
+        owner.setContactDetails(ownerUpdateRequest.getContactDetails());
+        owner.setAddress(ownerUpdateRequest.getAddress());
+        owner.setFirstname(ownerUpdateRequest.getFirstname());
+        owner.setLastname(ownerUpdateRequest.getLastname());
+        ownerRepository.save(owner);
+        return new OwnerResponse(owner);
     }
 }

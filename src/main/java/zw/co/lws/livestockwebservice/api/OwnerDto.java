@@ -13,6 +13,7 @@ public class OwnerDto {
     private String lastname;
     private String email;
     private String mobileNumber;
+    private String fullname;
 
     public static OwnerDto fromOwnerData(Owner owner){
         OwnerDto ownerDto = new OwnerDto();
@@ -20,6 +21,7 @@ public class OwnerDto {
         ownerDto.setLastname(owner.getLastname());
         ownerDto.setMobileNumber(owner.getContactDetails().getMobileNumber());
         ownerDto.setEmail(owner.getContactDetails().getEmail());
+        ownerDto.setFullname(owner.getFullName());
         return ownerDto;
     }
 }
