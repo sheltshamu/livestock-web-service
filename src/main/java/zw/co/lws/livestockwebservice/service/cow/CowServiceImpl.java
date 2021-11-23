@@ -43,7 +43,6 @@ public class CowServiceImpl implements CowService {
                // .mother(mother.get())
                 .gender(cowRequest.getGender())
                 .healthStatus(cowRequest.getHealthStatus())
-               // .medicationRecord(medicationRecord.get())
                 .status(cowRequest.getStatus())
                 .tagNumber(cowRequest.getTagNumber())
                 .type(cowRequest.getType())

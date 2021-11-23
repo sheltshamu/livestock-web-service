@@ -38,4 +38,7 @@ public class MedicationRecord extends BaseEntity{
     @Column(name = "date_attended")
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     private LocalDateTime dateAttended;
+    @OneToOne
+    @JoinColumn(name = "cow_id")
+    private Cow cow;
 }

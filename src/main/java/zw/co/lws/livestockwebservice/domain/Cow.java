@@ -71,9 +71,7 @@ public class Cow extends BaseEntity{
     @JoinColumn(name = "owner_id", nullable = false)
     private Owner owner;
 
-    @OneToOne
-    @JoinColumn(name = "medication_record")
-    private MedicationRecord medicationRecord;
+
 
 
 
