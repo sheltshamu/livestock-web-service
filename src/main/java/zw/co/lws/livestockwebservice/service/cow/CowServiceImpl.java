@@ -1,6 +1,8 @@
 package zw.co.lws.livestockwebservice.service.cow;
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
+import zw.co.lws.livestockwebservice.domain.Category;
 import zw.co.lws.livestockwebservice.domain.Cow;
 import zw.co.lws.livestockwebservice.domain.Owner;
 import zw.co.lws.livestockwebservice.persistence.MedicationRecordRepository;
@@ -9,7 +11,11 @@ import zw.co.lws.livestockwebservice.service.exceptions.CowNotFound;
 import zw.co.lws.livestockwebservice.service.exceptions.OwnerNotFound;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CowServiceImpl implements CowService {
@@ -44,6 +50,7 @@ public class CowServiceImpl implements CowService {
                 .tagNumber(cowRequest.getTagNumber())
                 .type(cowRequest.getType())
                 .build();
+        cowRepository.save(cow);
         return new CowResponse(cow);
     }
 
@@ -87,4 +94,5 @@ public class CowServiceImpl implements CowService {
         Cow cow = existingCow.get();
         return new CowResponse(cow);
     }
+
 }

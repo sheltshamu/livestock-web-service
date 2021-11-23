@@ -1,5 +1,6 @@
 package zw.co.lws.livestockwebservice.service.medication;
 
+import org.springframework.stereotype.Service;
 import zw.co.lws.livestockwebservice.domain.Cow;
 import zw.co.lws.livestockwebservice.domain.MedicationRecord;
 import zw.co.lws.livestockwebservice.persistence.CowRepository;
@@ -15,6 +16,8 @@ import java.util.Optional;
  * @author sheltons
  * created at 23-Nov-2021 15:53
  */
+
+@Service
 public class MedicationRecordServiceImpl implements MedicationRecordService{
 
     private final MedicationRecordRepository medicationRecordRepository;

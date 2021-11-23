@@ -21,7 +21,7 @@ public class OwnerDto {
         ownerDto.setLastname(owner.getLastname());
         ownerDto.setMobileNumber(owner.getContactDetails().getMobileNumber());
         ownerDto.setEmail(owner.getContactDetails().getEmail());
-        ownerDto.setFullname(owner.getFullName());
+        ownerDto.setFullname(owner.getFirstname()+" "+owner.getLastname());
         return ownerDto;
     }
 }
