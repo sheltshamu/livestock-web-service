@@ -1,17 +1,16 @@
 package zw.co.lws.livestockwebservice.service.medication;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Builder;
 import lombok.Data;
-import zw.co.lws.livestockwebservice.domain.Cow;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import java.time.LocalDateTime;
 
+/**
+ * @author sheltons
+ * created at 23-Nov-2021 16:19
+ */
 @Data
-public class MedicationRecordRequest {
+public class MedicationRecordUpdateRequest {
+    private Long id;
     private String diseaseName;
     private String symptomsDescription;
     private String recommendedMedication;

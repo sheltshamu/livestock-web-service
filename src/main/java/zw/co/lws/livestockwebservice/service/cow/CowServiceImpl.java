@@ -1,26 +1,23 @@
 package zw.co.lws.livestockwebservice.service.cow;
 
 import org.springframework.stereotype.Service;
-import zw.co.lws.livestockwebservice.domain.MedicationRecord;
 import zw.co.lws.livestockwebservice.domain.Cow;
 import zw.co.lws.livestockwebservice.domain.Owner;
 import zw.co.lws.livestockwebservice.persistence.MedicationRecordRepository;
-import zw.co.lws.livestockwebservice.persistence.CowRepository;
 import zw.co.lws.livestockwebservice.persistence.OwnerRepository;
 import zw.co.lws.livestockwebservice.service.exceptions.CowNotFound;
 import zw.co.lws.livestockwebservice.service.exceptions.OwnerNotFound;
-import zw.co.lws.livestockwebservice.service.exceptions.RecordNotFoundException;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
 public class CowServiceImpl implements CowService {
-    private final CowRepository cowRepository;
+    private final zw.co.lws.livestockwebservice.persistence.CowRepository cowRepository;
     private final OwnerRepository ownerRepository;
     private final MedicationRecordRepository medicationRecordRepository;
 
-    public CowServiceImpl(CowRepository cowRepository
+    public CowServiceImpl(zw.co.lws.livestockwebservice.persistence.CowRepository cowRepository
             , OwnerRepository ownerRepository
             , MedicationRecordRepository medicationRecordRepository) {
         this.cowRepository = cowRepository;
