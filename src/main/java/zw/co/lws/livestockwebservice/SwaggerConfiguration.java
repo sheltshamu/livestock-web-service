@@ -19,7 +19,7 @@ public class SwaggerConfiguration {
                 "The Livestock Web Service Rest provides end-points for livestock application  ",
                 "1.0",
                 "Terms of service",
-                new Contact("Shelton", "", "sheltshamu@gmail.com"),
+                new Contact("Shelton", "stanton tech", "sheltshamu@gmail.com"),
                 "License of API",
                 "API license URL",
                 Collections.emptyList());

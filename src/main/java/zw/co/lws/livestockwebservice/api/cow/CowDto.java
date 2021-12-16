@@ -1,8 +1,7 @@
-package zw.co.lws.livestockwebservice.api;
+package zw.co.lws.livestockwebservice.api.cow;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import zw.co.lws.livestockwebservice.domain.*;
 
@@ -17,7 +16,7 @@ public class CowDto {
     private Type type;
     private Category category;
     private Gender gender;
-    private Owner owner;
+    private String ownerName;
 
     public static CowDto fromCowDto(Cow cow){
         CowDto cowDto = new CowDto();
@@ -26,7 +25,7 @@ public class CowDto {
         cowDto.setType(cow.getType());
         cowDto.setTagNumber(cow.getTagNumber());
         cowDto.setCategory(cow.getCategory());
-        cowDto.setOwner(cow.getOwner());
+        cowDto.setOwnerName(cow.getOwner().getFullName());
         return cowDto;
     }
 }

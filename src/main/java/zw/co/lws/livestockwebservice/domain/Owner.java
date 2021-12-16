@@ -2,8 +2,8 @@ package zw.co.lws.livestockwebservice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.Transient;
 
 @Builder
-@Data
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -33,5 +33,54 @@ public class Owner extends BaseEntity{
 
     @Embedded
     private ContactDetails contactDetails;
+
+
+    public String getFirstname() {
+        return this.firstname;
+    }
+
+    public String getLastname() {
+        return this.lastname;
+    }
+
+    public String getFullName() {
+        return this.firstname + " " +this.lastname;
+    }
+
+    public String getIdentificationNumber() {
+        return this.identificationNumber;
+    }
+
+    public Address getAddress() {
+        return this.address;
+    }
+
+    public ContactDetails getContactDetails() {
+        return this.contactDetails;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setIdentificationNumber(String identificationNumber) {
+        this.identificationNumber = identificationNumber;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setContactDetails(ContactDetails contactDetails) {
+        this.contactDetails = contactDetails;
+    }
 
 }

@@ -1,4 +1,4 @@
-package zw.co.lws.livestockwebservice.api;
+package zw.co.lws.livestockwebservice.api.cow;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

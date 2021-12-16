@@ -5,9 +5,7 @@ import zw.co.lws.livestockwebservice.domain.Cow;
 import zw.co.lws.livestockwebservice.domain.MedicationRecord;
 import zw.co.lws.livestockwebservice.persistence.CowRepository;
 import zw.co.lws.livestockwebservice.persistence.MedicationRecordRepository;
-import zw.co.lws.livestockwebservice.service.cow.CowService;
-import zw.co.lws.livestockwebservice.service.exceptions.CowNotFound;
-import zw.co.lws.livestockwebservice.service.exceptions.RecordNotFoundException;
+import zw.co.lws.livestockwebservice.service.exceptions.ResourceNotFoundException;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -33,7 +31,7 @@ public class MedicationRecordServiceImpl implements MedicationRecordService{
         //TODo Notify
         Optional<Cow> cow = cowRepository.findByTagNumber(medicationRecordRequest.getTagNumber());
         if (!cow.isPresent()){
-            throw new CowNotFound(medicationRecordRequest.getTagNumber());
+            throw new ResourceNotFoundException("Cow with tag number {0} was not found",medicationRecordRequest.getTagNumber());
         }
         MedicationRecord medicationRecord =MedicationRecord.builder()
                 .attendedBy(medicationRecordRequest.getAttendedBy())
@@ -51,11 +49,11 @@ public class MedicationRecordServiceImpl implements MedicationRecordService{
     public MedicationResponse update(MedicationRecordUpdateRequest medicationRecordUpdateRequest) {
         Optional<MedicationRecord> existingMedication = medicationRecordRepository.findById(medicationRecordUpdateRequest.getId());
         if (!existingMedication.isPresent()){
-            throw new RecordNotFoundException(medicationRecordUpdateRequest.getId());
+            throw new ResourceNotFoundException("Record with id {0} was not found",medicationRecordUpdateRequest.getId());
         }
         Optional<Cow> existingCow = cowRepository.findByTagNumber(medicationRecordUpdateRequest.getTagNumber());
         if (!existingCow.isPresent()){
-            throw new CowNotFound(medicationRecordUpdateRequest.getTagNumber());
+            throw new ResourceNotFoundException("Cow with tag number {0} was not found",medicationRecordUpdateRequest.getTagNumber());
         }
         MedicationRecord medicationRecord = existingMedication.get();
         medicationRecord.setRecommendedMedication(medicationRecordUpdateRequest.getRecommendedMedication());
@@ -65,5 +63,15 @@ public class MedicationRecordServiceImpl implements MedicationRecordService{
         medicationRecord.setSymptomsDescription(medicationRecordUpdateRequest.getSymptomsDescription());
         medicationRecord.setDiseaseName(medicationRecordUpdateRequest.getDiseaseName());
         return new MedicationResponse(medicationRecord);
+    }
+
+    @Override
+    public MedicationResponse findById(Long id) {
+        Optional<MedicationRecord> medicationRecord = medicationRecordRepository.findById(id);
+        if (!medicationRecord.isPresent()){
+            throw new  ResourceNotFoundException("Record with id {0} was not found",id);
+        }
+        MedicationRecord medication = medicationRecord.get();
+        return new MedicationResponse(medication);
     }
 }

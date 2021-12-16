@@ -13,7 +13,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class CowUpdateRequest {
-    private Long id;
     private String tagNumber;
     private LocalDate dateOfBirth;
     private Type type;
