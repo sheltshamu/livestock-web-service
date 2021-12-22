@@ -1,4 +1,4 @@
-package zw.co.lws.livestockwebservice.api;
+package zw.co.lws.livestockwebservice.api.owner;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +15,14 @@ public class OwnerDto {
     private String mobileNumber;
     private String fullname;
 
+    public OwnerDto(Owner owner){
+        this.firstname=owner.getFirstname();
+        this.lastname=owner.getLastname();
+        this.email=owner.getContactDetails().getEmail();
+        this.mobileNumber=owner.getContactDetails().getMobileNumber();
+        this.fullname = owner.getFullName();
+    }
+
     public static OwnerDto fromOwnerData(Owner owner){
         OwnerDto ownerDto = new OwnerDto();
         ownerDto.setFirstname(owner.getFirstname());
@@ -24,4 +32,6 @@ public class OwnerDto {
         ownerDto.setFullname(owner.getFirstname()+" "+owner.getLastname());
         return ownerDto;
     }
+
+
 }

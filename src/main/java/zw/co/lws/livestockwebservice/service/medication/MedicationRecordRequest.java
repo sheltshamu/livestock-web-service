@@ -8,6 +8,7 @@ import zw.co.lws.livestockwebservice.domain.Cow;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -19,3 +20,4 @@ public class MedicationRecordRequest {
     private LocalDateTime dateAttended;
     private String tagNumber;
 }
+

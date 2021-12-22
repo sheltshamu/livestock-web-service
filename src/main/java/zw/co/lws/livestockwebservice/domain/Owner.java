@@ -83,4 +83,5 @@ public class Owner extends BaseEntity{
         this.contactDetails = contactDetails;
     }
 
+
 }

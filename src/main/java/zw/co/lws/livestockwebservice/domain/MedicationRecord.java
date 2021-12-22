@@ -16,10 +16,16 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "medication_record")
-public class MedicationRecord extends BaseEntity{
+public class MedicationRecord{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
+    @Column(name = "date_created")
+    private LocalDateTime createdDate;
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
+    @Column(name = "date_modified")
+    private LocalDateTime modifiedDate;
     @Column(name = "disease_name",length = 200)
     private String diseaseName;
     @Column(name = "symptoms_description")
@@ -31,7 +37,7 @@ public class MedicationRecord extends BaseEntity{
     @Column(name = "date_attended")
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     private LocalDateTime dateAttended;
-    @OneToOne
-    @JoinColumn(name = "cow_id")
-    private Cow cow;
+    @Column(name = "tag_number")
+    private String tagNumber;
+
 }

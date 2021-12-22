@@ -12,5 +12,4 @@ public class OwnerUpdateRequest {
     private String identificationNumber;
     private Address address;
     private ContactDetails contactDetails;
-    private String mobileNumber;
 }

@@ -4,10 +4,6 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-/**
- * @author sheltons
- * created at 23-Nov-2021 16:19
- */
 @Data
 public class MedicationRecordUpdateRequest {
     private Long id;

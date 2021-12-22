@@ -1,11 +1,11 @@
-package zw.co.lws.livestockwebservice.api;
+package zw.co.lws.livestockwebservice.api.owner;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import zw.co.lws.livestockwebservice.commons.Response;
-import zw.co.lws.livestockwebservice.domain.Owner;
 import zw.co.lws.livestockwebservice.service.owner.OwnerRequest;
 import zw.co.lws.livestockwebservice.service.owner.OwnerResponse;
 import zw.co.lws.livestockwebservice.service.owner.OwnerService;
@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 @Controller("/owner")
+@Tag(name = "Owner Controller", description = "Owner endpoints")
 public class OwnerController {
 
     private final OwnerService ownerService;
@@ -23,6 +24,7 @@ public class OwnerController {
     public OwnerController(OwnerService ownerService) {
         this.ownerService = ownerService;
     }
+
 
     @PostMapping("/create")
     public ResponseEntity<OwnerDto> create(@RequestBody OwnerRequest ownerRequest){
@@ -38,16 +40,19 @@ public class OwnerController {
         return new ResponseEntity<>(ownerDto,HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public Response<OwnerDto> findById(@PathVariable("id") Long id){
+    @GetMapping("/find-by/{id}")
+    public ResponseEntity<OwnerDto> findById(@PathVariable("id") Long id){
         OwnerResponse ownerResponse = ownerService.getById(id);
         OwnerDto ownerDto = OwnerDto.fromOwnerData(ownerResponse.getOwner());
-        return new Response<>(ownerDto).ok();
+        return ResponseEntity.ok(ownerDto);
     }
 
     @GetMapping("/get-all")
-    public List<Owner> getAll(){
-       // List<Owner> ownerList = ownerService.getAll();
-        return ownerService.getAll();
+    public ResponseEntity<List<OwnerDto>>getAll(){
+        List<OwnerResponse> ownerResponseList = ownerService.getAll();
+        List<OwnerDto> ownerDtoList = new ArrayList<>();
+        ownerResponseList.stream().forEach(ownerResponse -> ownerDtoList.add(new OwnerDto(ownerResponse.getOwner())));
+        return  new ResponseEntity<>(ownerDtoList,HttpStatus.OK);
     }
+
 }

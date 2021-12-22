@@ -8,5 +8,5 @@ public interface OwnerService {
     OwnerResponse create(OwnerRequest ownerRequest);
     OwnerResponse update(OwnerUpdateRequest ownerUpdateRequest);
     OwnerResponse getById(Long id);
-    List<Owner> getAll();
+    List<OwnerResponse> getAll();
 }

@@ -4,11 +4,12 @@ import org.springframework.stereotype.Service;
 import zw.co.lws.livestockwebservice.domain.Address;
 import zw.co.lws.livestockwebservice.domain.ContactDetails;
 import zw.co.lws.livestockwebservice.domain.Owner;
-import zw.co.lws.livestockwebservice.persistence.OwnerRepository;
+import zw.co.lws.livestockwebservice.persistence.owner.OwnerRepository;
 import zw.co.lws.livestockwebservice.service.exceptions.DuplicateEntryException;
 import zw.co.lws.livestockwebservice.service.exceptions.ResourceNotFoundException;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,7 +75,7 @@ public class OwnerServiceImpl implements OwnerService {
     @Override
     public OwnerResponse getById(Long id) {
         Optional<Owner> existingOwner = ownerRepository.findById(id);
-        if (existingOwner.isPresent()) {
+        if (!existingOwner.isPresent()) {
             throw new ResourceNotFoundException("Owner with id {0} was not found",id);
         }
         Owner owner = existingOwner.get();
@@ -83,8 +84,11 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
-    public List<Owner> getAll() {
-        return ownerRepository.findAll();
+    public List<OwnerResponse> getAll() {
+        List<Owner> ownerList = ownerRepository.findAll();
+        List<OwnerResponse> ownerResponseList = new ArrayList<>();
+        ownerList.stream().forEach(owner -> ownerResponseList.add(new OwnerResponse(owner)));
+        return ownerResponseList;
     }
 
 }
