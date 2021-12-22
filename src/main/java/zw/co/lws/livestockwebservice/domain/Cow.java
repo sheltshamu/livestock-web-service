@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Builder
 @Data
@@ -15,20 +16,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity
 public class Cow extends BaseEntity{
-
-    /**
-     * dateOfBirth-
-     * -type-
-     * -category
-     * -gender
-     * -status(Available,Sold,Died)
-     * -health_status
-     * -mother_id
-     * -father_id
-     * -owner_id
-     * -description
-     * -medication_record
-     */
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
+    @Column(name = "date_created")
+    private LocalDateTime createdDate;
 
     @Column(name = "tag_number", unique = true,length = 50)
     private String tagNumber;
@@ -70,9 +60,5 @@ public class Cow extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
     private Owner owner;
-
-
-
-
 
 }

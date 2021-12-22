@@ -1,14 +1,19 @@
 package zw.co.lws.livestockwebservice.service.cow;
 
 import org.springframework.stereotype.Service;
+import zw.co.lws.livestockwebservice.commons.Response;
 import zw.co.lws.livestockwebservice.domain.Cow;
 import zw.co.lws.livestockwebservice.domain.Owner;
-import zw.co.lws.livestockwebservice.persistence.CowRepository;
-import zw.co.lws.livestockwebservice.persistence.MedicationRecordRepository;
-import zw.co.lws.livestockwebservice.persistence.OwnerRepository;
+import zw.co.lws.livestockwebservice.domain.Status;
+import zw.co.lws.livestockwebservice.persistence.cow.CowRepository;
+import zw.co.lws.livestockwebservice.persistence.medicalrecord.MedicationRecordRepository;
+import zw.co.lws.livestockwebservice.persistence.owner.OwnerRepository;
+import zw.co.lws.livestockwebservice.service.exceptions.DuplicateEntryException;
 import zw.co.lws.livestockwebservice.service.exceptions.ResourceNotFoundException;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,6 +33,10 @@ public class CowServiceImpl implements CowService {
         Optional<Owner> owner = ownerRepository.findById(cowRequest.getOwnerId());
         if (!owner.isPresent()){
             throw new ResourceNotFoundException("Owner with id {0} was not found",cowRequest.getOwnerId());
+        }
+        Optional<Cow> existingCow = cowRepository.findByTagNumber(cowRequest.getTagNumber());
+        if (existingCow.isPresent()){
+            throw new DuplicateEntryException("Tag number {0} is already in use",cowRequest.getTagNumber());
         }
         Cow cow = Cow.builder()
                 .owner(owner.get())
@@ -72,6 +81,7 @@ public class CowServiceImpl implements CowService {
         cow.setMother(mother.get());
         cow.setType(cowUpdateRequest.getType());
         cow.setModifiedDate(LocalDateTime.now());
+        cowRepository.save(cow);
         return new CowResponse(cow);
     }
 
@@ -83,6 +93,50 @@ public class CowServiceImpl implements CowService {
         }
         Cow cow = existingCow.get();
         return new CowResponse(cow);
+    }
+
+    @Override
+    public List<CowResponse> findCowsByStatus(Status status) {
+        List<Cow> cowList = cowRepository.findCowsByStatus(status);
+        List<CowResponse> cowResponseList = new ArrayList<>();
+        cowList.stream().forEach(cow -> cowResponseList.add( new CowResponse(cow)));
+        return cowResponseList;
+    }
+
+    @Override
+    public List<CowResponse> findAll() {
+        List<Cow> cowList = cowRepository.findAll();
+        List<CowResponse> cowResponseList = new ArrayList<>();
+        cowList.stream().forEach(cow -> cowResponseList.add(new CowResponse(cow)));
+        return cowResponseList;
+    }
+
+    @Override
+    public CowResponse updateOwner(String tagNumber, Long ownerId) {
+        Optional<Cow> existingCow = cowRepository.findByTagNumber(tagNumber);
+        if (!existingCow.isPresent()){
+            throw new ResourceNotFoundException("Cow with Tagnumber {0} was not found",tagNumber);
+        }
+        Optional<Owner> owner = ownerRepository.findById(ownerId);
+        if (!owner.isPresent()){
+            throw new ResourceNotFoundException("Owner with id {0} was not found",ownerId);
+        }
+        Cow cow = existingCow.get();
+        cow.setOwner(owner.get());
+        cowRepository.save(cow);
+        return new CowResponse(cow);
+    }
+
+    @Override
+    public CowResponse updateCowStatus(String tagNumber, Status status) {
+       Optional<Cow> existingCow = cowRepository.findByTagNumber(tagNumber);
+       if (!existingCow.isPresent()){
+           throw new ResourceNotFoundException("Cow with tagNumber {0} was not found",tagNumber);
+       }
+       Cow cow = existingCow.get();
+       cow.setStatus(status);
+       cowRepository.save(cow);
+       return new CowResponse(cow);
     }
 
 }

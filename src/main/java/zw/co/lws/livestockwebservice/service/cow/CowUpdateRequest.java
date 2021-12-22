@@ -24,5 +24,4 @@ public class CowUpdateRequest {
     private Long motherId;
     private Long fatherId;
     private Long ownerId;
-    private Long medicationRecordId;
 }
