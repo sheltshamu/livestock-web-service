@@ -34,14 +34,11 @@ public class OwnerServiceImpl implements OwnerService {
                 .mobileNumber(ownerRequest.getMobileNumber())
                 .build();
 
-        Optional<Owner> ownerEmail = Optional.ofNullable(ownerRepository.findOwnerByContactDetails_Email(ownerRequest.getEmail()));
-        if (ownerEmail.isPresent()){
-            throw new DuplicateEntryException("Oops.. Email Already Exist");
-        }
-        Optional<Owner> ownerMobileNumber = Optional.ofNullable(ownerRepository.findOwnerByContactDetails_MobileNumber(ownerRequest.getMobileNumber()));
-        if (ownerMobileNumber.isPresent()){
-            throw new DuplicateEntryException("Oops.. Mobile number Already Exist");
-        }
+      Owner ownerEmail = ownerRepository.findOwnerByContactDetails_Email(ownerRequest.getEmail())
+              .orElseThrow(()-> new ResourceNotFoundException("Owner not found"));
+
+      Owner ownerMobileNumber =ownerRepository.findOwnerByContactDetails_MobileNumber(ownerRequest.getMobileNumber())
+                .orElseThrow(()->  new DuplicateEntryException("Mobile Already Exist"));
 
         Owner owner = new Owner();
         owner.setAddress(address);
