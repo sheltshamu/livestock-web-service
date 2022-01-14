@@ -17,8 +17,6 @@ import java.util.Optional;
  * @author sheltons
  * created at 23-Nov-2021 15:53
  */
-
-@Service
 public class MedicationRecordServiceImpl implements MedicationRecordService{
 
     private final MedicationRecordRepository medicationRecordRepository;

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public class OwnerServiceImpl implements OwnerService {
     private final OwnerRepository ownerRepository;
 
