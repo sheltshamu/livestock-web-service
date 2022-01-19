@@ -1,4 +1,4 @@
-package zw.co.lws.livestockwebservice.service.cow;
+package zw.co.lws.livestockwebservice.service.cow.create;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class CowRequest {
+public class CowCreateRequest {
     private String tagNumber;
     private LocalDate dateOfBirth;
     private Type type;

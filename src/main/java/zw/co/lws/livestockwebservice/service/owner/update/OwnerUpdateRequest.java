@@ -1,4 +1,4 @@
-package zw.co.lws.livestockwebservice.service.owner;
+package zw.co.lws.livestockwebservice.service.owner.update;
 
 import lombok.Getter;
 import zw.co.lws.livestockwebservice.domain.Address;

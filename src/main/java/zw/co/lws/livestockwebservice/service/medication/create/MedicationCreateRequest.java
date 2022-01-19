@@ -1,12 +1,11 @@
-package zw.co.lws.livestockwebservice.service.medication;
+package zw.co.lws.livestockwebservice.service.medication.create;
 
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
-public class MedicationRecordUpdateRequest {
-    private Long id;
+public class MedicationCreateRequest {
     private String diseaseName;
     private String symptomsDescription;
     private String recommendedMedication;
@@ -14,3 +13,4 @@ public class MedicationRecordUpdateRequest {
     private LocalDateTime dateAttended;
     private String tagNumber;
 }
+

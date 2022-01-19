@@ -1,19 +1,14 @@
 package zw.co.lws.livestockwebservice.api.timetable;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import zw.co.lws.livestockwebservice.commons.Response;
 import zw.co.lws.livestockwebservice.domain.TaskStatus;
-import zw.co.lws.livestockwebservice.domain.TimeTable;
-import zw.co.lws.livestockwebservice.service.timetable.TimeTableRequest;
+import zw.co.lws.livestockwebservice.service.timetable.create.TimeTableCreateRequest;
 import zw.co.lws.livestockwebservice.service.timetable.TimeTableResponse;
-import zw.co.lws.livestockwebservice.service.timetable.TimeTableService;
-import zw.co.lws.livestockwebservice.service.timetable.TimeTableUpdateRequest;
+import zw.co.lws.livestockwebservice.service.timetable.find.TimeTableService;
+import zw.co.lws.livestockwebservice.service.timetable.update.TimeTableUpdateRequest;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -29,9 +24,10 @@ public class TimeTableController {
         this.timeTableService = timeTableService;
     }
 
+    /*
     @PostMapping(value = "/create")
-    public ResponseEntity<TimeTableDto> create(@RequestBody TimeTableRequest timeTableRequest){
-        TimeTableResponse timeTableResponse = timeTableService.create(timeTableRequest);
+    public ResponseEntity<TimeTableDto> create(@RequestBody TimeTableCreateRequest timeTableCreateRequest){
+        TimeTableResponse timeTableResponse = timeTableService.create(timeTableCreateRequest);
         TimeTableDto timeTableDto = TimeTableDto.of(timeTableResponse.getTimeTable());
         return ResponseEntity.ok(timeTableDto);
     }
@@ -57,5 +53,7 @@ public class TimeTableController {
         TimeTableDto timeTableDto = TimeTableDto.of(timeTableResponse.getTimeTable());
         return ResponseEntity.ok(timeTableDto);
     }
+
+     */
 
 }

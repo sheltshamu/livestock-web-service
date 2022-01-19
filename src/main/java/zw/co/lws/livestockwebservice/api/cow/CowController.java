@@ -5,10 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import zw.co.lws.livestockwebservice.domain.Status;
-import zw.co.lws.livestockwebservice.service.cow.CowRequest;
+import zw.co.lws.livestockwebservice.service.cow.create.CowCreateRequest;
 import zw.co.lws.livestockwebservice.service.cow.CowResponse;
-import zw.co.lws.livestockwebservice.service.cow.CowService;
-import zw.co.lws.livestockwebservice.service.cow.CowUpdateRequest;
+import zw.co.lws.livestockwebservice.service.cow.find.CowService;
+import zw.co.lws.livestockwebservice.service.cow.update.CowUpdateRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +22,10 @@ public class CowController {
     public CowController(CowService cowService) {
         this.cowService = cowService;
     }
-
+/*
     @PostMapping("/create")
-    public ResponseEntity<CowDto> create(@RequestBody CowRequest cowRequest){
-        CowResponse cow = cowService.create(cowRequest);
+    public ResponseEntity<CowDto> create(@RequestBody CowCreateRequest cowCreateRequest){
+        CowResponse cow = cowService.create(cowCreateRequest);
         CowDto cowDto = CowDto.fromCowDto(cow.getCow());
         return new ResponseEntity<>(cowDto, HttpStatus.OK);
     }
@@ -43,6 +43,7 @@ public class CowController {
         CowDto cowDto = CowDto.fromCowDto(cow.getCow());
         return new ResponseEntity<>(cowDto,HttpStatus.OK);
     }
+
 
 
     @GetMapping("/get-all-by/{status}")
@@ -74,5 +75,5 @@ public class CowController {
         CowDto cowDto = CowDto.fromCowDto(cow.getCow());
         return new ResponseEntity<>(cowDto,HttpStatus.OK);
     }
-
+*/
 }

@@ -1,4 +1,4 @@
-package zw.co.lws.livestockwebservice.service.cow;
+package zw.co.lws.livestockwebservice.service.cow.update;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

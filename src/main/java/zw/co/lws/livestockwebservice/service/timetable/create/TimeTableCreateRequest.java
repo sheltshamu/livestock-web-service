@@ -1,4 +1,4 @@
-package zw.co.lws.livestockwebservice.service.timetable;
+package zw.co.lws.livestockwebservice.service.timetable.create;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -8,12 +8,11 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Data
-public class TimeTableUpdateRequest {
-    private Long id;
+public class TimeTableCreateRequest {
     @NotNull(message = "task name is required")
     private String taskName;
     private String description;
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private TaskStatus taskStatus;
 }

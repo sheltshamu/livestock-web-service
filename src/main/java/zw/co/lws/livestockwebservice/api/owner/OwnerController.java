@@ -5,11 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import zw.co.lws.livestockwebservice.commons.Response;
-import zw.co.lws.livestockwebservice.service.owner.OwnerRequest;
+import zw.co.lws.livestockwebservice.service.owner.create.OwnerCreateRequest;
 import zw.co.lws.livestockwebservice.service.owner.OwnerResponse;
-import zw.co.lws.livestockwebservice.service.owner.OwnerService;
-import zw.co.lws.livestockwebservice.service.owner.OwnerUpdateRequest;
+import zw.co.lws.livestockwebservice.service.owner.find.OwnerService;
+import zw.co.lws.livestockwebservice.service.owner.update.OwnerUpdateRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +25,10 @@ public class OwnerController {
     }
 
 
+    /*
     @PostMapping("/create")
-    public ResponseEntity<OwnerDto> create(@RequestBody OwnerRequest ownerRequest){
-        OwnerResponse owner = ownerService.create(ownerRequest);
+    public ResponseEntity<OwnerDto> create(@RequestBody OwnerCreateRequest ownerCreateRequest){
+        OwnerResponse owner = ownerService.create(ownerCreateRequest);
         OwnerDto ownerDto = OwnerDto.fromOwnerData(owner.getOwner());
         return new ResponseEntity<>(ownerDto,HttpStatus.OK);
     }
@@ -55,4 +55,6 @@ public class OwnerController {
         return  new ResponseEntity<>(ownerDtoList,HttpStatus.OK);
     }
 
+
+     */
 }

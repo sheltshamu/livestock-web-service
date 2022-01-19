@@ -1,13 +1,13 @@
 package zw.co.lws.livestockwebservice.service.medication;
 
 import lombok.Getter;
-import zw.co.lws.livestockwebservice.domain.MedicationRecord;
+import zw.co.lws.livestockwebservice.domain.Medication;
 
 @Getter
 public class MedicationResponse {
-    private final MedicationRecord medicationRecord;
+    private final Medication medication;
 
-    public MedicationResponse(MedicationRecord medicationRecord) {
-        this.medicationRecord = medicationRecord;
+    public MedicationResponse(Medication medication) {
+        this.medication = medication;
     }
 }

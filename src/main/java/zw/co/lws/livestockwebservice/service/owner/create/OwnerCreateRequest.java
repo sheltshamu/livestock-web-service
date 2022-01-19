@@ -1,15 +1,13 @@
-package zw.co.lws.livestockwebservice.service.owner;
+package zw.co.lws.livestockwebservice.service.owner.create;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OwnerRequest {
+public class OwnerCreateRequest {
     private String firstname;
     private String lastname;
     private String identificationNumber;

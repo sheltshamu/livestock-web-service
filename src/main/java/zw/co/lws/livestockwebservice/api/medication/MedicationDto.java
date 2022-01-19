@@ -1,6 +1,6 @@
 package zw.co.lws.livestockwebservice.api.medication;
 
-import zw.co.lws.livestockwebservice.domain.MedicationRecord;
+import zw.co.lws.livestockwebservice.domain.Medication;
 
 import java.time.LocalDateTime;
 
@@ -14,21 +14,21 @@ public class MedicationDto {
     public MedicationDto() {
     }
 
-    public MedicationDto(MedicationRecord medicationRecord){
-        this.diseaseName = medicationRecord.getDiseaseName();
-        this.symptomsDescription = medicationRecord.getSymptomsDescription();
-        this.recommendedMedication = medicationRecord.getRecommendedMedication();
-        this.attendedBy = medicationRecord.getAttendedBy();
-        this.dateAttended = medicationRecord.getDateAttended();
+    public MedicationDto(Medication medication){
+        this.diseaseName = medication.getDiseaseName();
+        this.symptomsDescription = medication.getSymptomsDescription();
+        this.recommendedMedication = medication.getRecommendedMedication();
+        this.attendedBy = medication.getAttendedBy();
+        this.dateAttended = medication.getDateAttended();
     }
 
-    public  static MedicationDto of(MedicationRecord medicationRecord){
+    public  static MedicationDto of(Medication medication){
         MedicationDto medicationDto = new MedicationDto();
-        medicationDto.diseaseName=medicationRecord.getDiseaseName();
-        medicationDto.symptomsDescription=medicationRecord.getSymptomsDescription();
-        medicationDto.recommendedMedication=medicationRecord.getRecommendedMedication();
-        medicationDto.attendedBy=medicationRecord.getAttendedBy();
-        medicationDto.dateAttended=medicationRecord.getDateAttended();
+        medicationDto.diseaseName= medication.getDiseaseName();
+        medicationDto.symptomsDescription= medication.getSymptomsDescription();
+        medicationDto.recommendedMedication= medication.getRecommendedMedication();
+        medicationDto.attendedBy= medication.getAttendedBy();
+        medicationDto.dateAttended= medication.getDateAttended();
         return medicationDto;
     }
 
