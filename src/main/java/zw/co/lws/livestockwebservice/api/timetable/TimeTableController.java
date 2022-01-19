@@ -1,27 +1,17 @@
 package zw.co.lws.livestockwebservice.api.timetable;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import zw.co.lws.livestockwebservice.domain.TaskStatus;
-import zw.co.lws.livestockwebservice.service.timetable.create.TimeTableCreateRequest;
-import zw.co.lws.livestockwebservice.service.timetable.TimeTableResponse;
-import zw.co.lws.livestockwebservice.service.timetable.find.TimeTableService;
-import zw.co.lws.livestockwebservice.service.timetable.update.TimeTableUpdateRequest;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import zw.co.lws.livestockwebservice.service.timetable.find.FindTimeTableService;
 
 @RestController
 @RequestMapping("/time-table")
 @Tag(name = "Time-Table Controller", description = "Time-Table endpoints")
 public class TimeTableController {
-    private final TimeTableService timeTableService;
+    private final FindTimeTableService findTimeTableService;
 
-    public TimeTableController(TimeTableService timeTableService) {
-        this.timeTableService = timeTableService;
+    public TimeTableController(FindTimeTableService findTimeTableService) {
+        this.findTimeTableService = findTimeTableService;
     }
 
     /*

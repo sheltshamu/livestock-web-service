@@ -4,7 +4,7 @@ import zw.co.lws.livestockwebservice.service.medication.MedicationResponse;
 
 import java.util.List;
 
-public interface MedicationService {
+public interface FindMedicationService {
     MedicationResponse findById(Long id);
     List<MedicationResponse> findMedicationRecordsByTagNumber(String tagNumber);
 }

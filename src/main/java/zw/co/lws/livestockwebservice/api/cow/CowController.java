@@ -1,27 +1,14 @@
 package zw.co.lws.livestockwebservice.api.cow;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import zw.co.lws.livestockwebservice.domain.Status;
-import zw.co.lws.livestockwebservice.service.cow.create.CowCreateRequest;
-import zw.co.lws.livestockwebservice.service.cow.CowResponse;
-import zw.co.lws.livestockwebservice.service.cow.find.CowService;
-import zw.co.lws.livestockwebservice.service.cow.update.CowUpdateRequest;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/cow")
 @Tag(name = "Cow Controller", description = "Cow endpoints")
 public class CowController {
-    private final CowService cowService;
 
-    public CowController(CowService cowService) {
-        this.cowService = cowService;
-    }
 /*
     @PostMapping("/create")
     public ResponseEntity<CowDto> create(@RequestBody CowCreateRequest cowCreateRequest){

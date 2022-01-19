@@ -1,27 +1,19 @@
 package zw.co.lws.livestockwebservice.api.owner;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import zw.co.lws.livestockwebservice.service.owner.create.OwnerCreateRequest;
-import zw.co.lws.livestockwebservice.service.owner.OwnerResponse;
-import zw.co.lws.livestockwebservice.service.owner.find.OwnerService;
-import zw.co.lws.livestockwebservice.service.owner.update.OwnerUpdateRequest;
-
-import java.util.ArrayList;
-import java.util.List;
+import zw.co.lws.livestockwebservice.service.owner.find.FindOwnerService;
 
 @RestController
 @Controller("/owner")
 @Tag(name = "Owner Controller", description = "Owner endpoints")
 public class OwnerController {
 
-    private final OwnerService ownerService;
+    private final FindOwnerService findOwnerService;
 
-    public OwnerController(OwnerService ownerService) {
-        this.ownerService = ownerService;
+    public OwnerController(FindOwnerService findOwnerService) {
+        this.findOwnerService = findOwnerService;
     }
 
 

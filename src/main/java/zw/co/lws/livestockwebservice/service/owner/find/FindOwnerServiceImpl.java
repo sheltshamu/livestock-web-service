@@ -8,10 +8,10 @@ import zw.co.lws.livestockwebservice.service.owner.OwnerResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OwnerServiceImpl implements OwnerService {
+public class FindOwnerServiceImpl implements FindOwnerService {
     private final OwnerRepository ownerRepository;
 
-    public OwnerServiceImpl(OwnerRepository ownerRepository) {
+    public FindOwnerServiceImpl(OwnerRepository ownerRepository) {
         this.ownerRepository = ownerRepository;
     }
 

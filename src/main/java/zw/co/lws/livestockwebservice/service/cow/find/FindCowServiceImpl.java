@@ -10,10 +10,10 @@ import zw.co.lws.livestockwebservice.service.exceptions.ResourceNotFoundExceptio
 import java.util.ArrayList;
 import java.util.List;
 
-public class CowServiceImpl implements CowService {
+public class FindCowServiceImpl implements FindCowService {
     private final CowRepository cowRepository;
 
-    public CowServiceImpl(CowRepository cowRepository, OwnerRepository ownerRepository) {
+    public FindCowServiceImpl(CowRepository cowRepository, OwnerRepository ownerRepository) {
         this.cowRepository = cowRepository;
     }
 

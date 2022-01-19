@@ -9,10 +9,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TimeTableServiceImpl implements TimeTableService{
+public class FindTimeTableServiceImpl implements FindTimeTableService {
     private final TimeTableRepository timeTableRepository;
 
-    public TimeTableServiceImpl(TimeTableRepository timeTableRepository) {
+    public FindTimeTableServiceImpl(TimeTableRepository timeTableRepository) {
         this.timeTableRepository = timeTableRepository;
     }
 

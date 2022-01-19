@@ -1,9 +1,7 @@
 package zw.co.lws.livestockwebservice.service.medication.find;
 
 import zw.co.lws.livestockwebservice.domain.Medication;
-import zw.co.lws.livestockwebservice.persistence.cow.CowRepository;
 import zw.co.lws.livestockwebservice.persistence.medicalrecord.MedicationRepository;
-import zw.co.lws.livestockwebservice.service.cow.find.CowService;
 import zw.co.lws.livestockwebservice.service.exceptions.ResourceNotFoundException;
 import zw.co.lws.livestockwebservice.service.medication.MedicationResponse;
 
@@ -14,11 +12,11 @@ import java.util.List;
  * @author sheltons
  * created at 23-Nov-2021 15:53
  */
-public class MedicationServiceImpl implements MedicationService {
+public class FindMedicationServiceImpl implements FindMedicationService {
 
     private final MedicationRepository medicationRepository;
 
-    public MedicationServiceImpl(MedicationRepository medicationRepository) {
+    public FindMedicationServiceImpl(MedicationRepository medicationRepository) {
         this.medicationRepository = medicationRepository;
     }
 
