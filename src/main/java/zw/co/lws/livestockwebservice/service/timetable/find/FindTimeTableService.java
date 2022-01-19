@@ -1,6 +1,6 @@
 package zw.co.lws.livestockwebservice.service.timetable.find;
 
-import zw.co.lws.livestockwebservice.domain.TaskStatus;
+import zw.co.lws.livestockwebservice.domain.enums.TaskStatus;
 import zw.co.lws.livestockwebservice.service.timetable.TimeTableResponse;
 
 import java.time.LocalDate;

@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import zw.co.lws.livestockwebservice.domain.*;
+import zw.co.lws.livestockwebservice.domain.enums.Category;
+import zw.co.lws.livestockwebservice.domain.enums.Gender;
+import zw.co.lws.livestockwebservice.domain.enums.Type;
 
 import java.time.LocalDate;
 

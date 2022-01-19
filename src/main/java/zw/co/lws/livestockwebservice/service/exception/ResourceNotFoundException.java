@@ -1,4 +1,4 @@
-package zw.co.lws.livestockwebservice.service.exceptions;
+package zw.co.lws.livestockwebservice.service.exception;
 
 import java.text.MessageFormat;
 

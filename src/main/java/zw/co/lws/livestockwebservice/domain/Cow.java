@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import zw.co.lws.livestockwebservice.domain.enums.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;

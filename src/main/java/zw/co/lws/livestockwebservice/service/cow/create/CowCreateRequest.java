@@ -3,7 +3,8 @@ package zw.co.lws.livestockwebservice.service.cow.create;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import zw.co.lws.livestockwebservice.domain.*;
+import zw.co.lws.livestockwebservice.domain.enums.*;
+
 import java.time.LocalDate;
 
 @AllArgsConstructor

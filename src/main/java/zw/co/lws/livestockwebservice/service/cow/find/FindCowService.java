@@ -1,6 +1,6 @@
 package zw.co.lws.livestockwebservice.service.cow.find;
 
-import zw.co.lws.livestockwebservice.domain.Status;
+import zw.co.lws.livestockwebservice.domain.enums.Status;
 import zw.co.lws.livestockwebservice.service.cow.CowResponse;
 
 import java.util.List;

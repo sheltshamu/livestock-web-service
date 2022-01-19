@@ -2,7 +2,7 @@ package zw.co.lws.livestockwebservice.service.owner.update;
 
 import zw.co.lws.livestockwebservice.domain.Owner;
 import zw.co.lws.livestockwebservice.persistence.owner.OwnerRepository;
-import zw.co.lws.livestockwebservice.service.exceptions.ResourceNotFoundException;
+import zw.co.lws.livestockwebservice.service.exception.ResourceNotFoundException;
 import zw.co.lws.livestockwebservice.service.owner.OwnerResponse;
 
 public class OwnerUpdateServiceImpl implements OwnerUpdateService{

@@ -1,6 +1,6 @@
 package zw.co.lws.livestockwebservice.service.timetable.find;
 
-import zw.co.lws.livestockwebservice.domain.TaskStatus;
+import zw.co.lws.livestockwebservice.domain.enums.TaskStatus;
 import zw.co.lws.livestockwebservice.domain.TimeTable;
 import zw.co.lws.livestockwebservice.persistence.timetable.TimeTableRepository;
 import zw.co.lws.livestockwebservice.service.timetable.TimeTableResponse;

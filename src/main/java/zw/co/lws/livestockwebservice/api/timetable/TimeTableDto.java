@@ -2,7 +2,7 @@ package zw.co.lws.livestockwebservice.api.timetable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import zw.co.lws.livestockwebservice.domain.TaskStatus;
+import zw.co.lws.livestockwebservice.domain.enums.TaskStatus;
 import zw.co.lws.livestockwebservice.domain.TimeTable;
 import java.time.LocalDate;
 

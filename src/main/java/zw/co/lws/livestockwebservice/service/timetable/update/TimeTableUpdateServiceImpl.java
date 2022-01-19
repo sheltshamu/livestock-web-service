@@ -2,7 +2,7 @@ package zw.co.lws.livestockwebservice.service.timetable.update;
 
 import zw.co.lws.livestockwebservice.domain.TimeTable;
 import zw.co.lws.livestockwebservice.persistence.timetable.TimeTableRepository;
-import zw.co.lws.livestockwebservice.service.exceptions.ResourceNotFoundException;
+import zw.co.lws.livestockwebservice.service.exception.ResourceNotFoundException;
 import zw.co.lws.livestockwebservice.service.timetable.TimeTableResponse;
 
 import java.time.LocalDateTime;

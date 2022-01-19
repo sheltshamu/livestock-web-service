@@ -5,7 +5,7 @@ import zw.co.lws.livestockwebservice.domain.Owner;
 import zw.co.lws.livestockwebservice.persistence.cow.CowRepository;
 import zw.co.lws.livestockwebservice.persistence.owner.OwnerRepository;
 import zw.co.lws.livestockwebservice.service.cow.CowResponse;
-import zw.co.lws.livestockwebservice.service.exceptions.ResourceNotFoundException;
+import zw.co.lws.livestockwebservice.service.exception.ResourceNotFoundException;
 
 import java.time.LocalDateTime;
 

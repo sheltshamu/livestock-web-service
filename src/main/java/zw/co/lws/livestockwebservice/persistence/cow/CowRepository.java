@@ -1,9 +1,9 @@
 package zw.co.lws.livestockwebservice.persistence.cow;
 
 import org.springframework.stereotype.Repository;
-import zw.co.lws.livestockwebservice.domain.Category;
+import zw.co.lws.livestockwebservice.domain.enums.Category;
 import zw.co.lws.livestockwebservice.domain.Cow;
-import zw.co.lws.livestockwebservice.domain.Status;
+import zw.co.lws.livestockwebservice.domain.enums.Status;
 import zw.co.lws.livestockwebservice.persistence.base.BaseRepository;
 
 import java.util.List;

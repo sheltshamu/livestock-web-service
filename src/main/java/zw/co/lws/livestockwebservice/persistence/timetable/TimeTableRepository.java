@@ -1,10 +1,9 @@
 package zw.co.lws.livestockwebservice.persistence.timetable;
 
 import org.springframework.stereotype.Repository;
-import zw.co.lws.livestockwebservice.domain.TaskStatus;
+import zw.co.lws.livestockwebservice.domain.enums.TaskStatus;
 import zw.co.lws.livestockwebservice.domain.TimeTable;
 import zw.co.lws.livestockwebservice.persistence.base.BaseRepository;
-import zw.co.lws.livestockwebservice.service.timetable.TimeTableResponse;
 
 import java.time.LocalDate;
 import java.util.List;

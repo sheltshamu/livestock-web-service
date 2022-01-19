@@ -2,6 +2,7 @@ package zw.co.lws.livestockwebservice.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+import zw.co.lws.livestockwebservice.domain.enums.TaskStatus;
 
 import javax.persistence.*;
 import java.time.LocalDate;

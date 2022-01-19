@@ -1,12 +1,9 @@
-package zw.co.lws.livestockwebservice.service.exceptions;
+package zw.co.lws.livestockwebservice.service.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import zw.co.lws.livestockwebservice.service.exceptions.DuplicateEntryException;
-import zw.co.lws.livestockwebservice.service.exceptions.ExceptionResponse;
-import zw.co.lws.livestockwebservice.service.exceptions.ResourceNotFoundException;
 
 import java.time.LocalDateTime;
 

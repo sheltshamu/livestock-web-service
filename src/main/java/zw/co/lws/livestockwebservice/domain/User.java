@@ -3,6 +3,7 @@ package zw.co.lws.livestockwebservice.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import zw.co.lws.livestockwebservice.domain.enums.Role;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

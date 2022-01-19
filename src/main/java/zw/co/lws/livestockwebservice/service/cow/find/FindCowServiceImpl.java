@@ -1,11 +1,11 @@
 package zw.co.lws.livestockwebservice.service.cow.find;
 
 import zw.co.lws.livestockwebservice.domain.Cow;
-import zw.co.lws.livestockwebservice.domain.Status;
+import zw.co.lws.livestockwebservice.domain.enums.Status;
 import zw.co.lws.livestockwebservice.persistence.cow.CowRepository;
 import zw.co.lws.livestockwebservice.persistence.owner.OwnerRepository;
 import zw.co.lws.livestockwebservice.service.cow.CowResponse;
-import zw.co.lws.livestockwebservice.service.exceptions.ResourceNotFoundException;
+import zw.co.lws.livestockwebservice.service.exception.ResourceNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;

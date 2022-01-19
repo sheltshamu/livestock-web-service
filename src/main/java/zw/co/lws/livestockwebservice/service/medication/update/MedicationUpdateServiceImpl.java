@@ -4,7 +4,7 @@ import zw.co.lws.livestockwebservice.domain.Cow;
 import zw.co.lws.livestockwebservice.domain.Medication;
 import zw.co.lws.livestockwebservice.persistence.cow.CowRepository;
 import zw.co.lws.livestockwebservice.persistence.medicalrecord.MedicationRepository;
-import zw.co.lws.livestockwebservice.service.exceptions.ResourceNotFoundException;
+import zw.co.lws.livestockwebservice.service.exception.ResourceNotFoundException;
 import zw.co.lws.livestockwebservice.service.medication.MedicationResponse;
 
 import java.time.LocalDateTime;
