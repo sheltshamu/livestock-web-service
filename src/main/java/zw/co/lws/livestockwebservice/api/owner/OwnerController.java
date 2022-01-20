@@ -1,9 +1,19 @@
 package zw.co.lws.livestockwebservice.api.owner;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import zw.co.lws.livestockwebservice.service.owner.OwnerResponse;
+import zw.co.lws.livestockwebservice.service.owner.create.OwnerCreateRequest;
+import zw.co.lws.livestockwebservice.service.owner.create.OwnerCreateService;
 import zw.co.lws.livestockwebservice.service.owner.find.FindOwnerService;
+import zw.co.lws.livestockwebservice.service.owner.update.OwnerUpdateRequest;
+import zw.co.lws.livestockwebservice.service.owner.update.OwnerUpdateService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @Controller("/owner")
@@ -11,42 +21,44 @@ import zw.co.lws.livestockwebservice.service.owner.find.FindOwnerService;
 public class OwnerController {
 
     private final FindOwnerService findOwnerService;
+    private final OwnerCreateService ownerCreateService;
+    private final OwnerUpdateService ownerUpdateService;
 
-    public OwnerController(FindOwnerService findOwnerService) {
+    public OwnerController(FindOwnerService findOwnerService, OwnerCreateService ownerCreateService, OwnerUpdateService ownerUpdateService) {
         this.findOwnerService = findOwnerService;
+        this.ownerCreateService = ownerCreateService;
+        this.ownerUpdateService = ownerUpdateService;
     }
 
 
-    /*
     @PostMapping("/create")
     public ResponseEntity<OwnerDto> create(@RequestBody OwnerCreateRequest ownerCreateRequest){
-        OwnerResponse owner = ownerService.create(ownerCreateRequest);
+        OwnerResponse owner = ownerCreateService.create(ownerCreateRequest);
         OwnerDto ownerDto = OwnerDto.fromOwnerData(owner.getOwner());
-        return new ResponseEntity<>(ownerDto,HttpStatus.OK);
+        return new ResponseEntity<>(ownerDto, HttpStatus.OK);
     }
 
     @PutMapping("/update")
     public ResponseEntity<OwnerDto> update(@RequestBody OwnerUpdateRequest ownerUpdateRequest){
-        OwnerResponse owner = ownerService.update(ownerUpdateRequest);
+        OwnerResponse owner = ownerUpdateService.update(ownerUpdateRequest);
         OwnerDto ownerDto = OwnerDto.fromOwnerData(owner.getOwner());
         return new ResponseEntity<>(ownerDto,HttpStatus.OK);
     }
 
     @GetMapping("/find-by/{id}")
     public ResponseEntity<OwnerDto> findById(@PathVariable("id") Long id){
-        OwnerResponse ownerResponse = ownerService.getById(id);
+        OwnerResponse ownerResponse = findOwnerService.getById(id);
         OwnerDto ownerDto = OwnerDto.fromOwnerData(ownerResponse.getOwner());
         return ResponseEntity.ok(ownerDto);
     }
 
     @GetMapping("/get-all")
     public ResponseEntity<List<OwnerDto>>getAll(){
-        List<OwnerResponse> ownerResponseList = ownerService.getAll();
+        List<OwnerResponse> ownerResponseList = findOwnerService.getAll();
         List<OwnerDto> ownerDtoList = new ArrayList<>();
         ownerResponseList.stream().forEach(ownerResponse -> ownerDtoList.add(new OwnerDto(ownerResponse.getOwner())));
         return  new ResponseEntity<>(ownerDtoList,HttpStatus.OK);
     }
 
 
-     */
 }

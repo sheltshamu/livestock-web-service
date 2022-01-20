@@ -21,7 +21,6 @@ public class MedicationController {
     private final MedicationCreateService medicationCreateService;
     private final MedicationUpdateService medicationUpdateService;
 
-
     public MedicationController(FindMedicationService findMedicationService, MedicationCreateService medicationCreateService, MedicationUpdateService medicationUpdateService) {
         this.findMedicationService = findMedicationService;
         this.medicationCreateService = medicationCreateService;
