@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface FindOwnerService {
     OwnerResponse getById(Long id);
-    List<OwnerResponse> getAll();
 }

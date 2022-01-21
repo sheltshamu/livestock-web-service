@@ -16,9 +16,8 @@ public class TimeTableUpdateServiceImpl implements TimeTableUpdateService{
 
     @Override
     public TimeTableResponse update(TimeTableUpdateRequest timeTableUpdateRequest) {
-        TimeTable existingTimeTable = timeTableRepository.findById(timeTableUpdateRequest.getId())
+        TimeTable timeTable = timeTableRepository.findById(timeTableUpdateRequest.getId())
                 .orElseThrow(()->new ResourceNotFoundException("Timetable with id {0} was not found",timeTableUpdateRequest.getId()));
-        TimeTable timeTable = existingTimeTable;
         timeTable.setDate(timeTableUpdateRequest.getDate());
         timeTable.setDescription(timeTableUpdateRequest.getDescription());
         timeTable.setTaskName(timeTableUpdateRequest.getTaskName());

@@ -17,9 +17,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 public class Cow extends BaseEntity{
-    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
-    @Column(name = "date_created")
-    private LocalDateTime createdDate;
 
     @Column(name = "tag_number", unique = true,length = 50)
     private String tagNumber;
@@ -43,10 +40,10 @@ public class Cow extends BaseEntity{
     private String description;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 25)
+    @Column(length = 25,nullable = false)
     private Status status;
 
-    @Column(name = "health_status", length = 25)
+    @Column(name = "health_status", length = 25,nullable = false)
     @Enumerated(EnumType.STRING)
     private HealthStatus healthStatus;
 

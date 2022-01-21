@@ -52,13 +52,4 @@ public class OwnerController {
         return ResponseEntity.ok(ownerDto);
     }
 
-    @GetMapping("/get-all")
-    public ResponseEntity<List<OwnerDto>>getAll(){
-        List<OwnerResponse> ownerResponseList = findOwnerService.getAll();
-        List<OwnerDto> ownerDtoList = new ArrayList<>();
-        ownerResponseList.stream().forEach(ownerResponse -> ownerDtoList.add(new OwnerDto(ownerResponse.getOwner())));
-        return  new ResponseEntity<>(ownerDtoList,HttpStatus.OK);
-    }
-
-
 }

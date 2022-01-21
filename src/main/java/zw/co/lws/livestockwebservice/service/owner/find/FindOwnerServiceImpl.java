@@ -24,12 +24,4 @@ public class FindOwnerServiceImpl implements FindOwnerService {
 
     }
 
-    @Override
-    public List<OwnerResponse> getAll() {
-        List<Owner> ownerList = ownerRepository.findAll();
-        List<OwnerResponse> ownerResponseList = new ArrayList<>();
-        ownerList.stream().forEach(owner -> ownerResponseList.add(new OwnerResponse(owner)));
-        return ownerResponseList;
-    }
-
 }

@@ -14,12 +14,17 @@ import java.time.LocalDate;
 @Data
 @Table(name = "time_table")
 public class TimeTable extends BaseEntity{
-    @Column(name = "task_name")
+
+    @Column(name = "task_name",length = 80)
     private String taskName;
+
+    @Column(length = 200)
     private String description;
+
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
+
     @Enumerated(EnumType.STRING)
-    @Column(name ="task_status")
+    @Column(name ="task_status",nullable = false,length = 100)
     private TaskStatus taskStatus;
 }

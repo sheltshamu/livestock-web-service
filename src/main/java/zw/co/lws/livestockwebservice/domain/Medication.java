@@ -16,21 +16,12 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "medication_record")
-public class Medication {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
-    @Column(name = "date_created")
-    private LocalDateTime createdDate;
-    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
-    @Column(name = "date_modified")
-    private LocalDateTime modifiedDate;
+public class Medication extends BaseEntity{
     @Column(name = "disease_name",length = 200)
     private String diseaseName;
-    @Column(name = "symptoms_description")
+    @Column(name = "symptoms_description",length=200)
     private String symptomsDescription;
-    @Column(name = "recommended_medication")
+    @Column(name = "recommended_medication",length = 200)
     private String recommendedMedication;
     @Column(name = "attended_by",length = 100)
     private String attendedBy;

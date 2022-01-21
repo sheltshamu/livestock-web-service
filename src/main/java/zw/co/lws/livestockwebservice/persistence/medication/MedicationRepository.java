@@ -1,4 +1,4 @@
-package zw.co.lws.livestockwebservice.persistence.medicalrecord;
+package zw.co.lws.livestockwebservice.persistence.medication;
 
 import org.springframework.stereotype.Repository;
 import zw.co.lws.livestockwebservice.domain.Medication;

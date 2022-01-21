@@ -3,7 +3,7 @@ package zw.co.lws.livestockwebservice.service.medication.create;
 import zw.co.lws.livestockwebservice.domain.Cow;
 import zw.co.lws.livestockwebservice.domain.Medication;
 import zw.co.lws.livestockwebservice.persistence.cow.CowRepository;
-import zw.co.lws.livestockwebservice.persistence.medicalrecord.MedicationRepository;
+import zw.co.lws.livestockwebservice.persistence.medication.MedicationRepository;
 import zw.co.lws.livestockwebservice.service.exception.ResourceNotFoundException;
 import zw.co.lws.livestockwebservice.service.medication.MedicationResponse;
 
@@ -30,8 +30,8 @@ public class MedicationCreateServiceImpl implements MedicationCreateService{
                 .symptomsDescription(medicationCreateRequest.getSymptomsDescription())
                 .dateAttended(medicationCreateRequest.getDateAttended())
                 .tagNumber(medicationCreateRequest.getTagNumber())
-                .createdDate(LocalDateTime.now())
                 .build();
+        //Todo Add persistences dates
         medicationRepository.save(medication);
         return new MedicationResponse(medication);
     }

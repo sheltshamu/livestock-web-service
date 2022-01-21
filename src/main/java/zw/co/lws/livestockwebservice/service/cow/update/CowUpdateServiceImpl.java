@@ -20,7 +20,7 @@ public class CowUpdateServiceImpl implements CowUpdateService{
 
     @Override
     public CowResponse update(CowUpdateRequest cowUpdateRequest) {
-        Cow existingCow = cowRepository.findByTagNumber(cowUpdateRequest.getTagNumber())
+        Cow cow = cowRepository.findByTagNumber(cowUpdateRequest.getTagNumber())
                 .orElseThrow(()-> new ResourceNotFoundException("TagNumber {0} Not found",cowUpdateRequest.getTagNumber()));
 
         Cow father = cowRepository.findByTagNumber(cowUpdateRequest.getTagNumber())
@@ -32,18 +32,17 @@ public class CowUpdateServiceImpl implements CowUpdateService{
         Cow mother = cowRepository.findByTagNumber(cowUpdateRequest.getTagNumber())
                 .orElseThrow(()-> new ResourceNotFoundException("TagNumber {0} Not found",cowUpdateRequest.getTagNumber()));
 
-        Cow cow = existingCow;
         cow.setCategory(cowUpdateRequest.getCategory());
         cow.setDescription(cowUpdateRequest.getDescription());
         cow.setDateOfBirth(cowUpdateRequest.getDateOfBirth());
         cow.setGender(cowUpdateRequest.getGender());
         cow.setHealthStatus(cowUpdateRequest.getHealthStatus());
         cow.setStatus(cowUpdateRequest.getStatus());
+        cow.setModifiedDate(LocalDateTime.now());
         cow.setOwner(owner);
         cow.setFather(father);
         cow.setMother(mother);
         cow.setType(cowUpdateRequest.getType());
-        cow.setModifiedDate(LocalDateTime.now());
         cowRepository.save(cow);
         return new CowResponse(cow);
     }

@@ -3,7 +3,7 @@ package zw.co.lws.livestockwebservice.service.medication.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import zw.co.lws.livestockwebservice.persistence.cow.CowRepository;
-import zw.co.lws.livestockwebservice.persistence.medicalrecord.MedicationRepository;
+import zw.co.lws.livestockwebservice.persistence.medication.MedicationRepository;
 import zw.co.lws.livestockwebservice.service.medication.create.MedicationCreateService;
 import zw.co.lws.livestockwebservice.service.medication.create.MedicationCreateServiceImpl;
 import zw.co.lws.livestockwebservice.service.medication.find.FindMedicationService;

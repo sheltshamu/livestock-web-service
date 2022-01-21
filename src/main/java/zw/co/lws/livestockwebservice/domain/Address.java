@@ -14,10 +14,10 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor
 @Embeddable
 public class Address{
-    @Column(name = "house_number",length = 80)
-    private String houseNo;
     @Column(length = 80)
-    private String suburb;
+    private String addressLine1;
     @Column(length = 80)
-    private String city;
+    private String addressLine2;
+    @Column(length = 80)
+    private String addressLine3;
 }
