@@ -1,5 +1,7 @@
 package zw.co.lws.livestockwebservice.service.owner.create;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import zw.co.lws.livestockwebservice.domain.Address;
 import zw.co.lws.livestockwebservice.domain.ContactDetails;
 import zw.co.lws.livestockwebservice.domain.Owner;
@@ -9,9 +11,11 @@ import zw.co.lws.livestockwebservice.service.exception.ResourceNotFoundException
 import zw.co.lws.livestockwebservice.service.owner.OwnerResponse;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 public class OwnerCreateServiceImpl implements OwnerCreateService{
     private final OwnerRepository ownerRepository;
+    private final Logger logger = LoggerFactory.getLogger(OwnerCreateServiceImpl.class);
 
     public OwnerCreateServiceImpl(OwnerRepository ownerRepository) {
         this.ownerRepository = ownerRepository;
@@ -19,32 +23,32 @@ public class OwnerCreateServiceImpl implements OwnerCreateService{
 
     @Override
     public OwnerResponse create(OwnerCreateRequest ownerCreateRequest) {
-        LocalDateTime currentDateTime = LocalDateTime.now();
+        logger.debug("creating owner = {}" + ownerCreateRequest);
         Address address = Address.builder()
-                .city(ownerCreateRequest.getCity())
-                .houseNo(ownerCreateRequest.getHouseNo())
-                .suburb(ownerCreateRequest.getSuburb())
+                .addressLine1(ownerCreateRequest.getAddressLine1())
+                .addressLine2(ownerCreateRequest.getAddressLine2())
+                .addressLine2(ownerCreateRequest.getAddressLine3())
                 .build();
-
         ContactDetails contactDetails = ContactDetails.builder()
                 .email(ownerCreateRequest.getEmail())
                 .mobileNumber(ownerCreateRequest.getMobileNumber())
                 .build();
-
-        Owner ownerEmail = ownerRepository.findOwnerByContactDetails_Email(ownerCreateRequest.getEmail())
-                .orElseThrow(()-> new ResourceNotFoundException("Owner not found"));
-
-        Owner ownerMobileNumber =ownerRepository.findOwnerByContactDetails_MobileNumber(ownerCreateRequest.getMobileNumber())
-                .orElseThrow(()->  new DuplicateEntryException("Mobile Already Exist"));
-
+        Optional<Owner> ownerEmail = ownerRepository.findOwnerByContactDetails_Email(ownerCreateRequest.getEmail());
+        if (ownerEmail.isPresent()){
+            throw new DuplicateEntryException("Email Already Exist");
+        }
+        Optional<Owner> ownerMobileNumber =ownerRepository.findOwnerByContactDetails_MobileNumber(ownerCreateRequest.getMobileNumber());
+        if (ownerMobileNumber.isPresent()){
+            throw new DuplicateEntryException("Mobile Number Already Exist");
+        }
         Owner owner = new Owner();
         owner.setAddress(address);
         owner.setIdentificationNumber(ownerCreateRequest.getIdentificationNumber());
         owner.setFirstname(ownerCreateRequest.getFirstname());
         owner.setLastname(ownerCreateRequest.getLastname());
         owner.setContactDetails(contactDetails);
-        owner.setCreatedDate(currentDateTime);
-        owner.setModifiedDate(currentDateTime);
+        owner.setCreatedDate(LocalDateTime.now());
+        owner.setModifiedDate(LocalDateTime.now());
         ownerRepository.save(owner);
         return new OwnerResponse(owner);
     }
