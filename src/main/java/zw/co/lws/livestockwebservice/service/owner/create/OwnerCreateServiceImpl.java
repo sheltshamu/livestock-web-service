@@ -15,7 +15,6 @@ import java.util.Optional;
 
 public class OwnerCreateServiceImpl implements OwnerCreateService{
     private final OwnerRepository ownerRepository;
-    private final Logger logger = LoggerFactory.getLogger(OwnerCreateServiceImpl.class);
 
     public OwnerCreateServiceImpl(OwnerRepository ownerRepository) {
         this.ownerRepository = ownerRepository;
@@ -23,7 +22,6 @@ public class OwnerCreateServiceImpl implements OwnerCreateService{
 
     @Override
     public OwnerResponse create(OwnerCreateRequest ownerCreateRequest) {
-        logger.debug("creating owner = {}" + ownerCreateRequest);
         Address address = Address.builder()
                 .addressLine1(ownerCreateRequest.getAddressLine1())
                 .addressLine2(ownerCreateRequest.getAddressLine2())

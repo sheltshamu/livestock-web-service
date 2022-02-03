@@ -11,7 +11,6 @@ import lombok.Setter;
 public class Response<T> {
     private Status status;
     private T payload;
-    private Object metadata;
 
     public Response(T payload) {
         this.payload=payload;
@@ -32,6 +31,12 @@ public class Response<T> {
     public Response<T> notFound(){
         Response<T> response = new Response<>();
         response.setStatus(Status.NOT_FOUND);
+        return response;
+    }
+
+    public Response<T> internalServerError(){
+        Response<T> response = new Response<>();
+        response.setStatus(Status.INTERNAL_SERVER_ERROR);
         return response;
     }
 

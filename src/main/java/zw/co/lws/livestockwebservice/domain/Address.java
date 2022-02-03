@@ -8,8 +8,10 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-@Builder
 @Embeddable
+@AllArgsConstructor
+@Data
+@Builder
 public class Address{
     public Address() {
     }

@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class CowUpdateRequest {
     private String tagNumber;
     private LocalDate dateOfBirth;
-    private Type type;
+    private Breed breed;
     private Category category;
     private Gender gender;
     private String description;

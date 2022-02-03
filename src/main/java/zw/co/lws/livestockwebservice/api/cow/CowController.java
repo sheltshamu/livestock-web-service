@@ -50,26 +50,4 @@ public class CowController {
         CowDto cowDto = CowDto.fromCowDto(cow.getCow());
         return new ResponseEntity<>(cowDto,HttpStatus.OK);
     }
-
-    /*
-    @GetMapping("/find-all-by/{status}")
-    public ResponseEntity<List<CowDto>> findAllByStatus(@PathVariable Status status){
-        List<CowResponse> cowResponseList = findCowService.findCowsByStatus(status);
-        List<CowDto> cowDtoList = new ArrayList<>();
-        cowResponseList.stream().forEach(cowResponse -> cowDtoList.add(new CowDto(cowResponse.getCow())));
-        return new ResponseEntity<List<CowDto>>(cowDtoList,HttpStatus.OK);
-    }
-
-     */
-
-    @GetMapping("/find-all")
-    public ResponseEntity<List<CowDto>> findAll(){
-        List<CowResponse> cowResponseList = findCowService.findAll();
-        List<CowDto> cowDtos = new ArrayList<>();
-        cowResponseList.stream().forEach(cowResponse -> cowDtos.add(new CowDto(cowResponse.getCow())));
-        return new ResponseEntity<>(cowDtos,HttpStatus.OK);
-    }
-
-
-
 }

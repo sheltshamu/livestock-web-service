@@ -43,7 +43,9 @@ public class MedicationController {
     public ResponseEntity<List<MedicationDto>> findAllByTagNumber(@RequestParam("tagNumber") String tagNumber){
         List<MedicationResponse> medicationResponseList = findMedicationService.findMedicationRecordsByTagNumber(tagNumber);
         List<MedicationDto> medicationDtoList = new ArrayList<>();
-        medicationResponseList.stream().forEach(medicationResponse -> medicationDtoList.add(new MedicationDto(medicationResponse.getMedication())));
+        medicationResponseList
+                .stream()
+                .forEach(medicationResponse -> medicationDtoList.add(new MedicationDto(medicationResponse.getMedication())));
         return  new ResponseEntity<>(medicationDtoList,HttpStatus.OK);
     }
 }

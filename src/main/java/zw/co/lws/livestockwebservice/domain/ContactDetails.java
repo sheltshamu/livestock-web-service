@@ -7,11 +7,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Embeddable
+@AllArgsConstructor
+@Data
+@Builder
 public class ContactDetails {
+    public ContactDetails() {
+    }
+
     @Column(unique = true,length = 40)
     private String email;
 

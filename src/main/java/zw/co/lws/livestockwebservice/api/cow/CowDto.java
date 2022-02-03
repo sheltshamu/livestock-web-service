@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import zw.co.lws.livestockwebservice.domain.*;
 import zw.co.lws.livestockwebservice.domain.enums.Category;
 import zw.co.lws.livestockwebservice.domain.enums.Gender;
-import zw.co.lws.livestockwebservice.domain.enums.Type;
+import zw.co.lws.livestockwebservice.domain.enums.Breed;
 
 import java.time.LocalDate;
 
@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class CowDto {
     private String tagNumber;
     private LocalDate dateOfBirth;
-    private Type type;
+    private Breed breed;
     private Category category;
     private Gender gender;
     private String ownerName;
@@ -25,7 +25,7 @@ public class CowDto {
         this.category=cow.getCategory();
         this.dateOfBirth=cow.getDateOfBirth();
         this.gender=cow.getGender();
-        this.type=cow.getType();
+        this.breed =cow.getBreed();
         this.ownerName=cow.getOwner().getFullName();
         this.tagNumber= cow.getTagNumber();
     }
@@ -34,7 +34,7 @@ public class CowDto {
         CowDto cowDto = new CowDto();
         cowDto.setDateOfBirth(cow.getDateOfBirth());
         cowDto.setGender(cow.getGender());
-        cowDto.setType(cow.getType());
+        cowDto.setBreed(cow.getBreed());
         cowDto.setTagNumber(cow.getTagNumber());
         cowDto.setCategory(cow.getCategory());
         cowDto.setOwnerName(cow.getOwner().getFullName());

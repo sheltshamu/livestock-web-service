@@ -22,16 +22,12 @@ public class CowUpdateServiceImpl implements CowUpdateService{
     public CowResponse update(CowUpdateRequest cowUpdateRequest) {
         Cow cow = cowRepository.findByTagNumber(cowUpdateRequest.getTagNumber())
                 .orElseThrow(()-> new ResourceNotFoundException("TagNumber {0} Not found",cowUpdateRequest.getTagNumber()));
-
         Cow father = cowRepository.findByTagNumber(cowUpdateRequest.getTagNumber())
                 .orElseThrow(()-> new ResourceNotFoundException("TagNumber {0} Not found",cowUpdateRequest.getTagNumber()));
-
         Owner owner = ownerRepository.findById(cowUpdateRequest.getOwnerId())
                 .orElseThrow(()->new ResourceNotFoundException("Owner with id {0} was not found",cowUpdateRequest.getOwnerId()));
-
         Cow mother = cowRepository.findByTagNumber(cowUpdateRequest.getTagNumber())
                 .orElseThrow(()-> new ResourceNotFoundException("TagNumber {0} Not found",cowUpdateRequest.getTagNumber()));
-
         cow.setCategory(cowUpdateRequest.getCategory());
         cow.setDescription(cowUpdateRequest.getDescription());
         cow.setDateOfBirth(cowUpdateRequest.getDateOfBirth());
@@ -42,7 +38,7 @@ public class CowUpdateServiceImpl implements CowUpdateService{
         cow.setOwner(owner);
         cow.setFather(father);
         cow.setMother(mother);
-        cow.setType(cowUpdateRequest.getType());
+        cow.setBreed(cowUpdateRequest.getBreed());
         cowRepository.save(cow);
         return new CowResponse(cow);
     }

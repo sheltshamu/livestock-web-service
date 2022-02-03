@@ -37,7 +37,7 @@ public class CowCreateServiceImpl implements CowCreateService{
                 .healthStatus(cowCreateRequest.getHealthStatus())
                 .status(cowCreateRequest.getStatus())
                 .tagNumber(cowCreateRequest.getTagNumber())
-                .type(cowCreateRequest.getType())
+                .breed(cowCreateRequest.getBreed())
                 .build();
         cowRepository.save(cow);
         return new CowResponse(cow);

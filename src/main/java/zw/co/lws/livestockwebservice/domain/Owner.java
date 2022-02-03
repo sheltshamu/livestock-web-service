@@ -3,7 +3,8 @@ package zw.co.lws.livestockwebservice.domain;
 import lombok.*;
 
 import javax.persistence.*;
-
+@AllArgsConstructor
+@Data
 @Builder
 @Entity
 @Table(name = "owner")

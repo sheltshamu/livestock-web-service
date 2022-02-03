@@ -6,14 +6,15 @@ import zw.co.lws.livestockwebservice.domain.enums.TaskStatus;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
-@Entity
-@Builder
 @AllArgsConstructor
-@NoArgsConstructor
 @Data
+@Builder
+@Entity
 @Table(name = "time_table")
 public class TimeTable extends BaseEntity{
+    public TimeTable(){
+
+    }
 
     @Column(name = "task_name",length = 80)
     private String taskName;
@@ -27,4 +28,5 @@ public class TimeTable extends BaseEntity{
     @Enumerated(EnumType.STRING)
     @Column(name ="task_status",nullable = false,length = 100)
     private TaskStatus taskStatus;
+
 }
