@@ -25,20 +25,4 @@ public class FindCowServiceImpl implements FindCowService {
         return new CowResponse(cow);
     }
 
-    @Override
-    public List<CowResponse> findCowsByStatus(Status status) {
-        List<Cow> cowList = cowRepository.findCowsByStatus(status);
-        List<CowResponse> cowResponseList = new ArrayList<>();
-        cowList.stream().forEach(cow -> cowResponseList.add( new CowResponse(cow)));
-        return cowResponseList;
-    }
-
-    @Override
-    public List<CowResponse> findAll() {
-        List<Cow> cowList = cowRepository.findAll();
-        List<CowResponse> cowResponseList = new ArrayList<>();
-        cowList.stream().forEach(cow -> cowResponseList.add(new CowResponse(cow)));
-        return cowResponseList;
-    }
-
 }

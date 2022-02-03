@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface FindCowService {
     CowResponse findByTagNumber(String tagNumber);
-    List<CowResponse> findCowsByStatus(Status status);
-    List<CowResponse> findAll();
 }
 

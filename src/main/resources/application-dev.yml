@@ -1,11 +1,14 @@
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/mombe_db
-    username: shelton
-    password: password123
+    username: admin
+    password: Password@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
 server:
-  port: 2021
+  port: 2022
+  servlet:
+    context-path: "/v1"

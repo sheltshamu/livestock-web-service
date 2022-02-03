@@ -2,17 +2,15 @@ package zw.co.lws.livestockwebservice.domain;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 @Builder
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
+@Table(name = "owner")
 public class Owner extends BaseEntity{
+    public Owner() {
+    }
+
     @Column(name = "first_name",length = 35, nullable = false)
     private String firstname;
 
@@ -35,6 +33,55 @@ public class Owner extends BaseEntity{
         return this.firstname + " " +this.lastname;
     }
 
+    public String getFirstname() {
+        return firstname;
+    }
 
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getIdentificationNumber() {
+        return identificationNumber;
+    }
+
+    public void setIdentificationNumber(String identificationNumber) {
+        this.identificationNumber = identificationNumber;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public ContactDetails getContactDetails() {
+        return contactDetails;
+    }
+
+    public void setContactDetails(ContactDetails contactDetails) {
+        this.contactDetails = contactDetails;
+    }
+
+    @Override
+    public String toString() {
+        return "Owner{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", identificationNumber='" + identificationNumber + '\'' +
+                ", address=" + address +
+                ", contactDetails=" + contactDetails +
+                '}';
+    }
 }
