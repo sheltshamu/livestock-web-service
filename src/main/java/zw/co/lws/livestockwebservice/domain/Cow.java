@@ -1,24 +1,21 @@
 package zw.co.lws.livestockwebservice.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import zw.co.lws.livestockwebservice.domain.enums.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Getter
+@Setter
+@ToString
 @Builder
 @AllArgsConstructor
-@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "cow")
 public class Cow extends BaseEntity{
-    public Cow(){
-
-    }
     @Column(name = "tag_number", unique = true,length = 50)
     private String tagNumber;
 

@@ -3,15 +3,15 @@ package zw.co.lws.livestockwebservice.domain;
 import lombok.*;
 
 import javax.persistence.*;
-@AllArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "owner")
 public class Owner extends BaseEntity{
-    public Owner() {
-    }
-
     @Column(name = "first_name",length = 35, nullable = false)
     private String firstname;
 

@@ -1,15 +1,16 @@
 package zw.co.lws.livestockwebservice.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import zw.co.lws.livestockwebservice.domain.enums.Role;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
+@ToString
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Entity
 @Table(name = "user")
 public class User extends BaseEntity{

@@ -8,7 +8,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
 server:
   port: 2022
   servlet:
     context-path: "/v1"
+

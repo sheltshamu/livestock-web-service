@@ -1,20 +1,19 @@
 package zw.co.lws.livestockwebservice.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 
 @Embeddable
-@AllArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ContactDetails {
-    public ContactDetails() {
-    }
-
     @Column(unique = true,length = 40)
     private String email;
 

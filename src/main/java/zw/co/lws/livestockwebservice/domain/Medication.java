@@ -1,22 +1,20 @@
 package zw.co.lws.livestockwebservice.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "medication_record")
 public class Medication extends BaseEntity{
-    public Medication() {
-    }
     @Column(name = "disease_name",length = 200)
     private String diseaseName;
     @Column(name = "symptoms_description",length=200)
